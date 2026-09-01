@@ -11,7 +11,7 @@ jobs:
         
         steps:
            - name: checkout Code
-            uses: actions/checkout@v4
+             uses: actions/checkout@v4
         
            - name: build docker images
-            run: docker build -t my-app:latest .
+             run: docker build -t my-app:latest .
