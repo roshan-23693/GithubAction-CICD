@@ -10,10 +10,10 @@ on:
 
 jobs:
     greet:
-        runs-on: ubuntu-latest
-        steps:
-        - name: Say hellow to users
+    runs-on: ubuntu-latest
+    steps:
+       - name: Say hellow to users
          run: echo "Hellow"
         
         - name: day hellow to username
-        run: echo "Hellow $USER"
+          run: echo "Hellow $USER"
