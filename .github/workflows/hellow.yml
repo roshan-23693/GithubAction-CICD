@@ -1,6 +1,6 @@
 # Docker file
 
-name: Docker
+name: Hello
 on:
     push:
        branches: [main]
