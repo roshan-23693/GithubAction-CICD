@@ -9,7 +9,7 @@ jobs:
     build:
         runs-on: ubuntu-latest
         steps:
-           - name: checkout ode
+           - name: checkout Code
             uses: actions/checkout@v4
         
            - name: build docker images
