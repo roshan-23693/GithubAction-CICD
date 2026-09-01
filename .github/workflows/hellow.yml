@@ -1,19 +1,16 @@
-# This is workflow name
+# Docker file
 
-name: Hello
-
-on: 
-  push: 
-     branches: [main]
-
-# There are jobs inside the workflow 
+name: Docker
+on:
+    push:
+       branches: [main]
 
 jobs:
-  greet:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Say hellow to users
-        run: echo "Hellow"
-    
-      - name: Say hellow to username
-        run: echo "Hellow $USER"
+    build:
+        runs-on: ubuntu-latest
+        steps:
+           - name: checkout ode
+            uses: actions/checkout@v4
+        
+           - name: build docker images
+            run: docker build -t my-app:latest .
