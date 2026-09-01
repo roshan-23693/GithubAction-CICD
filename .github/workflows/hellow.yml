@@ -9,12 +9,11 @@ on:
 # There are jobs inside the workflow 
 
 jobs:
-   # This is the name of job
-   greet:
-     runs-on: ubuntu-latest
-    steps:
+    greet:
+        runs-on: ubuntu-latest
+        steps:
         - name: Say hellow to users
-        run: echo "Hellow"
-    steps:
+         run: echo "Hellow"
+        
         - name: day hellow to username
         run: echo "Hellow $USER"
