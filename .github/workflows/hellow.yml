@@ -2,16 +2,28 @@
 
 name: Hello
 on:
-    push:
-       branches: [main]
+  workflow_dispatch:
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
-        
-        steps:
-           - name: checkout Code
-             uses: actions/checkout@v4
-        
-           - name: build docker images
-             run: docker build -t my-app:latest .
+  code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        run: echo "code clone from GitHub" 
+  build:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Build Docker Container
+         run: echo "Docker Container build" 
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+       - name: Test the container
+         run: echo "Testing the container"
+
+  deploy:
+     runs-on: ubuntu-latest
+     steps:
+     - name: Deploying the app
+       run: echo "Docker compose deployed on the server"
