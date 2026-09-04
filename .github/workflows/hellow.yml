@@ -2,11 +2,16 @@
 
 name: Hello
 on:
-  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+  
 
 jobs:
   code:
     runs-on: ubuntu-latest
+    
     steps:
       - name: checkout code
         run: echo "code clone from GitHub" 
