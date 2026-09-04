@@ -6,7 +6,7 @@ on:
     inputs:
       environmets:
         description: This is the environments value where this values workflow runs
-        default: true
+        default: dev 
         type: choice
         options:
            - dev
