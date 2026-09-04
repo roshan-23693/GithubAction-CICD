@@ -2,10 +2,16 @@
 
 name: Hello
 on:
-  push:
-    branches: [main]
-    paths:
-      - '**.html'
+  workflow_dispatch: 
+    inputs:
+      environmets:
+        description: This is the environments value where this values workflow runs
+        default: true
+        type: choice
+        options:
+           - dev
+           - prod
+           - staging
   
 
 jobs:
