@@ -1,37 +1,40 @@
-name: Portfoio
+name: Portfolio
 
 on:
- push:
+  push:
     branches: [main]
+  workflow_dispatch:
 
- workflow_dispatch:
-   
 permissions: 
-       pages: write
-       id-token: write
-       contents: read
+  pages: write
+  id-token: write
+  contents: read
 
 jobs:
-    deploy:
-      runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-latest
 
-      environment:
-        name: github-pages
-       # url: ${{steps.deployment.outputs.page_url}}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
-      steps:
-       # Get Aaccess to your code Portfolio code via a pre-built acttions
-       # clone or check out the code where this workflow is written
-        - name: Checkout Code
-          uses: actions/checkout@v4
-       # setup GitHub Pages
-        - name: Setup Github Pages
-          uses: actions/configure-pages@v4
+    steps:
+      # Get Access to your Portfolio code via a pre-built action
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-        # static code artifacts
-        - name: Upload static files
-          uses: actions/upload-pages-artifact@v3
+      # Setup GitHub Pages
+      - name: Setup Github Pages
+        uses: actions/configure-pages@v4
 
-        - name: Deploy to GitHub Pages
-          uses: actions/deploy-pages@v4
-          
+      # Package and upload static code artifacts
+      - name: Upload static files
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # If your files are in a subfolder like 'dist' or 'public', change '.' to './dist'
+          path: '.' 
+
+      # Deploy the uploaded artifact to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
